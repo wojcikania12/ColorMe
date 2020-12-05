@@ -1,7 +1,6 @@
 from flask import request
+from flask_cors import cross_origin
 from flask_restplus import Resource
-
-
 from rest.services.AddFilterService import AddFilterService
 from rest.services.ColorLineartService import ColorLineartService
 from rest.services.ColorPhotoService import ColorPhotoService
@@ -10,6 +9,7 @@ from rest.services.ColorPhotoService import ColorPhotoService
 class AddFilterEndpoint(Resource):
     addFilterService = AddFilterService()
 
+    @cross_origin()
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
@@ -21,6 +21,7 @@ class AddFilterEndpoint(Resource):
 class ColorPhotoEndpoint(Resource):
     colorPhotoService = ColorPhotoService()
 
+    @cross_origin()
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
@@ -30,6 +31,7 @@ class ColorPhotoEndpoint(Resource):
 class ColorLineartEndpoint(Resource):
     colorLineartService = ColorLineartService()
 
+    @cross_origin()
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]

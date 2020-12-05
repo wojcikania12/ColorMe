@@ -12,7 +12,6 @@ class AddFilterService:
         img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
         overlay = img.copy()
         rgb_color = self.__hex_to_rgb(color)
-        print(img.shape)
         cv2.rectangle(overlay, (0, 0), (img.shape[1], img.shape[0]), rgb_color, -1)
         cv2.addWeighted(overlay, transparency, img, 1 - transparency, 0, img)
         return self.imageConverter.encode_image_with_filter(img)
