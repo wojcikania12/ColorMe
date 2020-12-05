@@ -16,4 +16,12 @@ class ImageConverter:
         img.save(rawBytes, "JPEG")
         rawBytes.seek(0)
         img_base64 = base64.b64encode(rawBytes.read())
-        return str(img_base64)
+        return img_base64
+
+    def encode_image_with_filter(self, image):
+        img = Image.fromarray(image.astype("uint8"))
+        rawBytes = io.BytesIO()
+        img.save(rawBytes, "JPEG")
+        rawBytes.seek(0)
+        img_base64 = base64.b64encode(rawBytes.read())
+        return img_base64
