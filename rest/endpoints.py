@@ -1,57 +1,37 @@
 from flask import request
+from flask_cors import cross_origin
 from flask_restplus import Resource
-
-
 from rest.services.AddFilterService import AddFilterService
 from rest.services.ColorLineartService import ColorLineartService
 from rest.services.ColorPhotoService import ColorPhotoService
 
 
 class AddFilterEndpoint(Resource):
+    addFilterService = AddFilterService()
 
-    def __init__(self):
-        self.addFilterService = AddFilterService()
-        super().__init__()
-
+    @cross_origin()
     def post(self):
-        # payload = request.form.to_dict(flat=False)
-        # im_b64 = payload['image'][0]
-        # alpha = float(payload['transparency'][0])
-        # color = float(payload['color'][0])
-        #
-        # img = cv2.cvtColor(np.array(Image.open(buf)), cv2.COLOR_RGB2BGR)
-        # overlay = img.copy()
-        # output = img.copy()
-        # ########################################
-        #
-        # cv2.rectangle(overlay, (0, 0), (img.shape[0], img.shape[1]),
-        #               (0, 0, 255), -1)
-        # cv2.addWeighted(overlay, alpha, output, 1 - alpha,
-        #                 0, output)
-        # ################################################
-        # img = Image.fromarray(img.astype("uint8"))
-        # rawBytes = io.BytesIO()
-        # img.save(rawBytes, "JPEG")
-        # rawBytes.seek(0)
-        # img_base64 = base64.b64encode(rawBytes.read())
-        # return str(img_base64)
-        pass
+        payload = request.form.to_dict(flat=False)
+        im_b64 = payload['image'][0]
+        transparency = float(payload['transparency'][0])
+        color = payload['color'][0]
+        return self.addFilterService.put_filters_on_image(im_b64, color, transparency)
 
 
 class ColorPhotoEndpoint(Resource):
     colorPhotoService = ColorPhotoService()
 
+    @cross_origin()
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
         return self.colorPhotoService.color_image(im_b64)
 
 
-
-
 class ColorLineartEndpoint(Resource):
     colorLineartService = ColorLineartService()
 
+    @cross_origin()
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
