@@ -1,0 +1,137 @@
+
+.App {
+  text-align: center;
+  display: flex;
+  background-color: #fff;
+  height: 100vh;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  flex-direction: row;
+}
+
+
+.App-logo {
+  width: 80%;
+  height: auto;
+  pointer-events: none;
+}
+
+.App-left-side{
+  
+  width:calc(50vw - 70px);
+  height: calc(100vh - 70px);
+  background: #ef7cac;
+  color:white;
+  padding:35px;
+
+}
+.App-right-side{
+
+  width:calc(50vw - 70px);
+  height: calc(100vh - 70px);
+  color:black;
+  padding:35px;
+}
+
+.App-header {
+}
+
+.App-link {
+  color: #e14192;
+}
+.Button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  height: 50%;
+}
+.App-button{
+  background: transparent;
+  border: solid 1px #ed3e72;
+  padding:10px 20px;
+  font-size: 16px;
+  color:#ed3e72;
+  text-decoration: none;
+  border-radius: 20px;
+  margin:10px;
+  transition: 0.3s ease;
+  font-weight: bolder;
+  margin:10px;
+  width:50%;
+}
+
+.App-button:hover{
+  background: #ed3e72;
+  color:white;
+ 
+ 
+}
+.App-button-light{
+  background: transparent;
+  border: solid 1px white;
+  padding:10px 20px;
+  font-size: 16px;
+  color:white;
+  text-decoration: none;
+  border-radius: 20px;
+  margin:10px;
+  transition: 0.3s ease;
+  font-weight: bolder;
+  margin:10px;
+  width:50%;
+}
+.App-button-light:hover{
+  background: white;
+  color:#ed3e72;
+
+}
+.App-file-input{
+ display: none;
+}
+.custom-file-upload{
+  display: block;
+  border:solid 1px white;
+  padding:30px;
+  margin:50px;
+  cursor: pointer;
+  transition: 0.2;
+  transition: outline 0.2s;
+  max-width: 60%;
+}
+.custom-file-upload:hover{
+  text-decoration: underline;
+  outline: solid 3px white;
+}
+.custom-file-upload p{
+  overflow-wrap: break-word;
+}
+.left-side-content{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+}
+.sm-btn{
+  width:150px;
+}
+.left-side-logo{
+  width:200px;
+}
+a:focus{
+  border-radius:20px;
+}
+
+.slider-img{
+  width:50%;
+
+}
+.slider-container{
+  display:flex !important;
+  justify-content: center;
+  align-items: center;
+}

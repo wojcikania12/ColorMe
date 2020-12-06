@@ -15,7 +15,8 @@ class AddFilterEndpoint(Resource):
         im_b64 = payload['image'][0]
         transparency = float(payload['transparency'][0])
         color = payload['color'][0]
-        return self.addFilterService.put_filters_on_image(im_b64, color, transparency)
+        return self.addFilterService.put_filters_on_image(im_b64, color, transparency).decode()
+
 
 
 class ColorPhotoEndpoint(Resource):
@@ -25,7 +26,8 @@ class ColorPhotoEndpoint(Resource):
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
-        return self.colorPhotoService.color_image(im_b64)
+        return self.colorPhotoService.color_image(im_b64).decode()
+
 
 
 class ColorLineartEndpoint(Resource):
@@ -35,5 +37,5 @@ class ColorLineartEndpoint(Resource):
     def post(self):
         payload = request.form.to_dict(flat=False)
         im_b64 = payload['image'][0]
-        return self.colorLineartService.color_image(im_b64)
+        return self.colorLineartService.color_image(im_b64).decode()
 
