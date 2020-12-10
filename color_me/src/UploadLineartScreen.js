@@ -201,7 +201,7 @@ export default class UploadLineartScreen extends React.Component{
 	showResultPannel(){
 		if(this.state.coloredResponse!=""){
 			return(
-				<div>
+					<div className="resultPannel">
 					<p style={{padding:0, margin:5, display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'}}
