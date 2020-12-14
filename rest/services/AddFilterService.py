@@ -8,8 +8,7 @@ class AddFilterService:
         self.imageConverter = ImageConverter()
 
     def put_filters_on_image(self, encoded_image, color, transparency):
-        img = self.imageConverter.decode_image(encoded_image)
-        img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        img = np.array(self.imageConverter.decode_image(encoded_image))
         overlay = img.copy()
         rgb_color = self.__hex_to_rgb(color)
         cv2.rectangle(overlay, (0, 0), (img.shape[1], img.shape[0]), rgb_color, -1)
